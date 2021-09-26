@@ -6,6 +6,10 @@
 ただし、中身が実装されていません。
 実装して、ユニットテストが通るようにしてください。
 
+前回は、関数と条件分岐の復習でした。<br>
+今回は、ループと再帰の問題となります。<br>
+前回の応用で、前回よりも難しくなっているので、分からなければC言語の復習・学習をして取り組みましょう。
+
 [![MS Build and Test](https://github.com/tpu-game-2021/comp2_3_nest/actions/workflows/ms_test.yml/badge.svg)](https://github.com/tpu-game-2021/comp2_3_nest/actions/workflows/ms_test.yml)
 
 （このファイルの上の行の[tpu-game-2021]の部分(2か所)を自分のアカウント名に修正してください）
