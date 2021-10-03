@@ -95,20 +95,20 @@ namespace UnitTest
 
 		TEST_METHOD(TestCalcCombinations_1)
 		{
-			int ar[1] = { 1 };
+			int ar[1] = { 1 };    
 			Assert::AreEqual(1, calc_combinations(1, ar, 1));// 1
 		}
 
 		TEST_METHOD(TestCalcCombinations_2)
 		{
-			int ar[1] = { 2 };
+			int ar[1] = { 2 };    
 			Assert::AreEqual(1, calc_combinations(2, ar, 1));// 1
 		}
 
 		TEST_METHOD(TestCalcCombinations_30_30)
 		{
 			const int num = 30;
-			int ar[num];
+			int ar[num];        
 			for (int i = 0; i < num; i++) { ar[i] = 1; }
 			Assert::AreEqual(1, calc_combinations(num, ar, num));
 		}

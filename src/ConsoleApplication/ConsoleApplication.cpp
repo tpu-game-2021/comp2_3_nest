@@ -48,16 +48,20 @@ int main()
 	printf("%dと%dと%dと%dの任意の数の和が%dになる組み合わせは%d通りです\n", val1, val2, val3, val4, sum, calc_combinations_4(sum, val1, val2, val3, val4));
 
 	sum = 10;
-	array_size = 100000;
+	array_size = 100;
 	val_array = (int*)malloc(array_size * sizeof(int));
-	if (val_array) {// nullチェック
-		for (int i = 0; i < array_size; i++) {
+	if (val_array) 
+	{// nullチェック
+		for (int i = 0; i < array_size; i++) 
+		{
 			val_array[i] = 1;
 		}
 		// 表示
-		for (int i = 0; i < array_size; i++) {
+		for (int i = 0; i < array_size; i++) 
+		{
 			printf("%d", val_array[i]);
-			if (i != array_size - 1) {
+			if (i != array_size - 1) 
+			{
 				printf("と");
 			}
 		}
