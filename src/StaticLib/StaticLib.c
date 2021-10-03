@@ -30,11 +30,55 @@ int calc_combinations_3(int sum, int val1, int val2, int val3)
 // val1 から val4 の任意の組み合わせで値の和がsumになる組み合わせは何個ありますか？
 int calc_combinations_4(int sum, int val1, int val2, int val3, int val4)
 {
-	return 0;
+	int num = 0;
+
+	if (sum == val1) num++;
+	if (sum == val2) num++;
+	if (sum == val3) num++;
+	if (sum == val4) num++;
+	if (sum == val1 + val2) num++;
+	if (sum == val1 + val3) num++;
+	if (sum == val1 + val4) num++;
+	if (sum == val2 + val3) num++;
+	if (sum == val2 + val4) num++;
+	if (sum == val3 + val4) num++;
+	if (sum == val1 + val2 + val3) num++;
+	if (sum == val1 + val2 + val4) num++;
+	if (sum == val1 + val3 + val4) num++;
+	if (sum == val2 + val3 + val4) num++;
+	if (sum == val1 + val2 + val3 + val4) num++;
+
+	return num;
 }
 
 // val_array の配列に格納されたarray_sizeの数字の任意の組み合わせで値の和がsumになる組み合わせは何個ありますか？
 int calc_combinations(int sum, const int* val_array, int array_size)
 {
-	return 0;
+	int num = 0;
+	int i = 0;
+	int a = 0;
+	int b = 0;
+	float c = 1;
+	float d = 1;
+
+	for (i = 0;i < array_size;i++)
+	{
+		b += val_array[i];//r!
+
+		if (sum == b)
+		{
+			for (a = 0;a < i + 1;a++)
+			{
+				c *= ((float)(i + 1) - a);//(n-r)!
+			}
+			for (a = 0;a < i + 1;a++)
+			{
+				d *= ((float)array_size - a);//n!
+			}
+				num = (int)(d / c);
+				break;
+		}
+	}
+
+	return num;
 }
