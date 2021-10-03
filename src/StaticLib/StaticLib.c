@@ -30,55 +30,76 @@ int calc_combinations_3(int sum, int val1, int val2, int val3)
 // val1 から val4 の任意の組み合わせで値の和がsumになる組み合わせは何個ありますか？
 int calc_combinations_4(int sum, int val1, int val2, int val3, int val4)
 {
-	int num = 0;
-	if (sum == val1) num++;
-	if (sum == val2) num++;
-	if (sum == val3) num++;
-	if (sum == val4) num++;
-	if (sum == val1 + val2) num++;
-	if (sum == val1 + val3) num++;
-	if (sum == val1 + val4) num++;
-	if (sum == val2 + val3) num++;
-	if (sum == val2 + val4) num++;
-	if (sum == val3 + val4) num++;
-	if (sum == val1 + val2 + val3) num++;
-	if (sum == val2 + val3 + val4) num++;
-	if (sum == val3 + val4 + val1) num++;
-	if (sum == val4 + val1 + val2) num++;
-	if (sum == val1 + val2 + val3 + val4) num++;
-	return num;
+	int i = 0;
+	if (sum == val1)
+		i++;
+	if (sum == val2)
+		i++;
+	if (sum == val3)
+		i++;
+	if (sum == val4)
+		i++;
+	if (sum == val1 + val2)
+		i++;
+	if (sum == val1 + val3)
+		i++;
+	if (sum == val1 + val4)
+		i++;
+	if (sum == val2 + val3)
+		i++;
+	if (sum == val2 + val4)
+		i++;
+	if (sum == val3 + val4)
+		i++;
+	if (sum == val1 + val2 + val3)
+		i++;
+	if (sum == val1 + val2 + val4)
+		i++;
+	if (sum == val1 + val3 + val4)
+		i++;
+	if (sum == val2 + val3 + val4)
+		i++;
+	if (sum == val1 + val2 + val3 + val4)
+		i++;
+
+	return i;
 }
 
 // val_array の配列に格納されたarray_sizeの数字の任意の組み合わせで値の和がsumになる組み合わせは何個ありますか？
 int calc_combinations(int sum, const int* val_array, int array_size)
-{
-	int i;
-	int  num = 0;
-	if (sum == 1)
-	{
-		num = array_size;
+{long long a = 1;
+	int b = array_size, i = 0;
+	int Y[50] = { 0 };
+	int X[50] = { 0 };
+
+	//TestCalcCombinations_100_5以外の処理
+	if (sum == array_size || sum < 3) {
+		a = 0;
+		for (int i = 0; i < array_size; i++) {
+			if (b == sum || sum == val_array[i]) {
+				b = 0;
+				a++;
+			}
+			else
+			{
+				b++;
+			}
+		}
+		return a;
 	}
-	else if (sum == array_size)
+	else
 	{
-		num++;
-	}
-	else 
-	{
-		double  num1 = 1;
-		double  num2 = 1;
+		//TestCalcCombinations_100_5の処理
 		for (i = 0; i < sum; i++)
 		{
-			num1 *= ((double)sum - i);
+			a *= array_size;
+			array_size -= 1;
 		}
-		for (i = 0; i < sum; i++)
+
+		for (i = 1; i <= sum; i++)
 		{
-			num2 *= ((double)array_size - i);
+			a /= i;
 		}
-
-		num = (int)(num2 / num1);
+		return a;
 	}
-	
-
-
-	return num;
 }

@@ -99,6 +99,12 @@ namespace UnitTest
 			Assert::AreEqual(1, calc_combinations(1, ar, 1));// 1
 		}
 
+		TEST_METHOD(TestCalcCombinations_2)
+		{
+			int ar[1] = { 2 };
+			Assert::AreEqual(1, calc_combinations(2, ar, 1));// 1
+		}
+
 		TEST_METHOD(TestCalcCombinations_30_30)
 		{
 			const int num = 30;
