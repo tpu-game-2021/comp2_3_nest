@@ -1,4 +1,5 @@
-﻿#define WIN32_LEAN_AND_MEAN             // Windows ヘッダーからほとんど使用されていない部分を除外する
+﻿
+#define WIN32_LEAN_AND_MEAN             // Windows ヘッダーからほとんど使用されていない部分を除外する
 #include "Windows.h"                    // Windows API の機能定義
 
 #include <stdio.h>   // printf
@@ -12,7 +13,7 @@ int main()
 {
 	int val1, val2, val3, val4, sum;
 	int* val_array, array_size;
-
+	/*
 	val1 = 1;
 	val2 = 2;
 	printf("%dと%dは%s\n", val1, val2, is_same(val1, val2) ? "等しい" : "等しくない");
@@ -46,7 +47,7 @@ int main()
 	val3 = 3;
 	val4 = 4;
 	printf("%dと%dと%dと%dの任意の数の和が%dになる組み合わせは%d通りです\n", val1, val2, val3, val4, sum, calc_combinations_4(sum, val1, val2, val3, val4));
-
+	*/
 	sum = 10;
 	array_size = 100000;
 	val_array = (int*)malloc(array_size * sizeof(int));
@@ -55,12 +56,12 @@ int main()
 			val_array[i] = 1;
 		}
 		// 表示
-		for (int i = 0; i < array_size; i++) {
-			printf("%d", val_array[i]);
-			if (i != array_size - 1) {
-				printf("と");
-			}
-		}
+		//for (int i = 0; i < array_size; i++) {
+			//printf("%d", val_array[i]);
+			//if (i != array_size - 1) {
+				//printf("と");
+			//}
+		//}
 		printf("の任意の数の和が%dになる組み合わせは%d通りです\n", sum, calc_combinations(sum, val_array, array_size));
 
 		free(val_array);

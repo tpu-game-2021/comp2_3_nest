@@ -30,11 +30,52 @@ int calc_combinations_3(int sum, int val1, int val2, int val3)
 // val1 から val4 の任意の組み合わせで値の和がsumになる組み合わせは何個ありますか？
 int calc_combinations_4(int sum, int val1, int val2, int val3, int val4)
 {
-	return 0;
+	int conbinations = 0;
+	
+	if (sum == val1) conbinations += 1;
+	if (sum == val2) conbinations += 1;
+	if (sum == val3) conbinations += 1;
+	if (sum == val4) conbinations += 1;
+
+	if (sum == val1 + val2) conbinations += 1;
+	if (sum == val1 + val3) conbinations += 1;
+	if (sum == val1 + val4) conbinations += 1;
+	if (sum == val2 + val3) conbinations += 1;
+	if (sum == val2 + val4) conbinations += 1;
+	if (sum == val3 + val4) conbinations += 1;
+	
+	if (sum == val1 + val2 + val3) conbinations += 1;
+	if (sum == val1 + val3 + val4) conbinations += 1;
+	if (sum == val1 + val2 + val4) conbinations += 1;
+	if (sum == val2 + val3 + val4) conbinations += 1;
+	
+	if (sum == val1 + val2 + val3 + val4) conbinations += 1;
+
+	return conbinations;
 }
 
 // val_array の配列に格納されたarray_sizeの数字の任意の組み合わせで値の和がsumになる組み合わせは何個ありますか？
 int calc_combinations(int sum, const int* val_array, int array_size)
 {
-	return 0;
+	int i, j;
+	int goukei = 0;
+	int count = 0;
+	float  denominator = 1, molecule = 1;
+
+	for (i = 0; i < array_size; i++)
+	{
+		goukei = goukei + val_array[i];
+		if (sum == goukei)
+		{
+			for (j = 0; j < i + 1; j++)
+			{
+				denominator = denominator * ((float)(i + 1) - j);
+				molecule = molecule * ((float)array_size - j);
+			}
+			count = (int)(molecule / denominator);
+			break;
+		}
+	}
+
+	return count;
 }
