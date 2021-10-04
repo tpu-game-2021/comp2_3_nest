@@ -30,32 +30,28 @@ int calc_combinations_3(int sum, int val1, int val2, int val3)
 // val1 から val4 の任意の組み合わせで値の和がsumになる組み合わせは何個ありますか？
 int calc_combinations_4(int sum, int val1, int val2, int val3, int val4)
 {
-	//conbinations = 'c','o','n','b'
-	int c = 0;
-	int o = 0;
-	int n = 0;
-	int b = 0;
-
-	if (sum == val1) c += 1;
-	if (sum == val2) c += 1;
-	if (sum == val3) c += 1;
-	if (sum == val4) c += 1;
-
-	if (sum == val1 + val2) o += 1;
-	if (sum == val1 + val3) o += 1;
-	if (sum == val1 + val4) o += 1;
-	if (sum == val2 + val3) o += 1;
-	if (sum == val2 + val4) o += 1;
-	if (sum == val3 + val4) o += 1;
+	int conbinations = 0;
 	
-	if (sum == val1 + val2 + val3) n += 1;
-	if (sum == val1 + val3 + val4) n += 1;
-	if (sum == val1 + val2 + val4) n += 1;
-	if (sum == val2 + val3 + val4) n += 1;
-	
-	if (sum == val1 + val2 + val3 + val4) b += 1;
+	if (sum == val1) conbinations += 1;
+	if (sum == val2) conbinations += 1;
+	if (sum == val3) conbinations += 1;
+	if (sum == val4) conbinations += 1;
 
-	return c + o + n + b;
+	if (sum == val1 + val2) conbinations += 1;
+	if (sum == val1 + val3) conbinations += 1;
+	if (sum == val1 + val4) conbinations += 1;
+	if (sum == val2 + val3) conbinations += 1;
+	if (sum == val2 + val4) conbinations += 1;
+	if (sum == val3 + val4) conbinations += 1;
+	
+	if (sum == val1 + val2 + val3) conbinations += 1;
+	if (sum == val1 + val3 + val4) conbinations += 1;
+	if (sum == val1 + val2 + val4) conbinations += 1;
+	if (sum == val2 + val3 + val4) conbinations += 1;
+	
+	if (sum == val1 + val2 + val3 + val4) conbinations += 1;
+
+	return conbinations;
 }
 
 // val_array の配列に格納されたarray_sizeの数字の任意の組み合わせで値の和がsumになる組み合わせは何個ありますか？
